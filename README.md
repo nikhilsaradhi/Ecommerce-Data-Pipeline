@@ -11,51 +11,55 @@
 
 ## 📌 Project Overview
 
-This project implements a **modern event-driven e-commerce data pipeline** that simulates real-world enterprise analytics architecture.
+This project implements a production-style event-driven e-commerce data pipeline designed to simulate modern enterprise analytics architecture.
 
-It captures transactional & behavioral events, processes them using ETL, models them using Star Schema, loads them into BigQuery, exposes data via FastAPI, and visualizes insights through an interactive Streamlit dashboard.
+The system generates 5,000+ user interaction events and transactional records, processes them through a structured ETL pipeline, models the data using a Star Schema (fact and dimension tables), and loads it into Google BigQuery as a cloud data warehouse.
+
+Analytical views are created to support business intelligence reporting, exposed via FastAPI REST endpoints, and visualized through an interactive Streamlit dashboard.
+
+The project demonstrates full ownership of the data lifecycle — from raw data ingestion to business-ready insights.
 
 ---
 
-## 🎯 Main Objectives
+## 🎯 Objectives
 
-- Build an end-to-end data pipeline
+- Build an end-to-end data engineering pipeline
 - Implement event-driven architecture
-- Perform ETL cleaning & validation
-- Design fact & dimension tables
-- Create cloud-based analytical warehouse
-- Develop REST APIs
-- Build a BI-style dashboard
+- Perform ETL cleaning and validation
+- Design fact and dimension tables (Star Schema)
+- Integrate with cloud data warehouse (BigQuery)
+- Develop REST APIs using FastAPI
+- Build a professional BI-style dashboard
 
 ---
 
-# 🏗 Architecture Diagram
+## 🏗 Architecture
 
-```
-Raw CSV Data
-     ↓
-MySQL (Raw Tables)
-     ↓
-Python ETL Cleaning
-     ↓
-MySQL (Clean Tables)
-     ↓
-Star Schema (Fact & Dimension Tables)
-     ↓
-Google BigQuery
-     ↓
-Analytical Views
-     ↓
-FastAPI (REST APIs)
-     ↓
-Streamlit Dashboard
-```
+### End-to-End Data Flow
+
+Raw CSV Data  
+⬇  
+MySQL (Raw Tables)  
+⬇  
+Python ETL Processing  
+⬇  
+MySQL (Clean Tables)  
+⬇  
+Star Schema Modeling  
+⬇  
+Google BigQuery  
+⬇  
+Analytical Views  
+⬇  
+FastAPI (API Layer)  
+⬇  
+Streamlit Dashboard  
 
 ---
 
-# ⚡ Event-Driven System
+## ⚡ Event-Driven System
 
-### Generated Events
+The system simulates real-world e-commerce user behavior by generating:
 
 - page_view  
 - product_view  
@@ -68,53 +72,54 @@ Streamlit Dashboard
 - order_delivered  
 - review_submitted  
 
-### Why Event-Driven?
-
-Modern companies use event-driven systems to:
-
-- Track user behavior
-- Monitor conversion funnels
-- Analyze real-time performance
-- Optimize business decisions
-
-This project simulates enterprise-grade clickstream tracking.
+This replicates clickstream tracking used by modern digital platforms for behavioral analytics and conversion monitoring.
 
 ---
 
-# 🧱 Data Modeling (Star Schema)
+## 📊 Data Scale & Simulation
 
-## ⭐ Fact Table
+- 5,000+ simulated user interaction events  
+- 100K+ transactional order records processed  
+- 10+ event types implemented  
+- Star Schema modeling for analytical queries  
+- Cloud-based warehouse integration (BigQuery)
 
-### `fact_orders`
-
-| Column | Description |
-|--------|-------------|
-| order_id | Unique order |
-| customer_id | Buyer reference |
-| product_id | Product reference |
-| order_date | Purchase date |
-| price | Product price |
-| freight_value | Shipping cost |
-
-Fact tables store measurable metrics.
+The simulation mimics real-world user journeys, enabling realistic analytical reporting.
 
 ---
 
-## 📐 Dimension Tables
+## 🧱 Data Modeling
 
-- dim_customers
-- dim_products
-- dim_sellers
-- dim_date
+### ⭐ Fact Table
 
+**fact_orders**
+
+Stores measurable business metrics:
+
+- order_id
+- customer_id
+- product_id
+- order_date
+- price
+- freight_value
+
+---
+
+### 📐 Dimension Tables
+
+- dim_customers  
+- dim_products  
+- dim_sellers  
+- dim_date  
+
+Fact tables store numeric metrics.  
 Dimension tables provide descriptive context.
 
-Fact = Numbers  
-Dimension = Description  
-
 ---
 
-# 📊 Analytical Views (BigQuery)
+## 📈 Analytical Views (BigQuery)
+
+Business-ready views created:
 
 - daily_orders  
 - monthly_orders  
@@ -123,15 +128,15 @@ Dimension = Description
 - category_contribution  
 - orders_distribution  
 
-These views provide business-ready datasets.
+These views simplify reporting and improve analytical performance.
 
 ---
 
-# 🔌 FastAPI Layer
+## 🔌 FastAPI Layer
 
-FastAPI exposes analytics as REST endpoints.
+FastAPI exposes BigQuery data through REST APIs.
 
-### API Endpoints
+### Example Endpoints
 
 - `/daily-orders`
 - `/monthly-orders`
@@ -139,82 +144,82 @@ FastAPI exposes analytics as REST endpoints.
 - `/seller-city`
 - `/category-contribution`
 
-Benefits:
-
-- Scalable backend
-- Decoupled architecture
-- Production-ready structure
+This ensures scalable, decoupled, and production-ready architecture.
 
 ---
 
-# 📈 Streamlit Dashboard
+## 📊 Streamlit Dashboard
+
+The dashboard provides interactive business insights including:
 
 ### KPIs
-
-- Total Orders
-- Total Revenue
-- Active Categories
-- Revenue Growth %
+- Total Orders  
+- Total Revenue  
+- Active Categories  
+- Revenue Growth Percentage  
 
 ### Visualizations
-
-- 📈 Line Chart → Order Volume Over Time  
-- 🌊 Area Chart → Cumulative Order Growth  
-- 📊 Vertical Bar → Top Product Categories  
-- 🏙 Horizontal Bar → Seller Revenue by City  
-- 🥧 Donut Chart → Category Sales Contribution  
-- 📦 Histogram → Order Volume Distribution  
+- Order Volume Over Time (Line Chart)  
+- Cumulative Order Growth (Area Chart)  
+- Top Product Categories (Bar Chart)  
+- Seller Revenue by City (Horizontal Bar)  
+- Category Contribution (Donut Chart)  
+- Order Volume Distribution (Histogram)  
 
 ### Features
-
 - Global Time Filter (Daily / Monthly)
 - Top N Filter
-- Professional Dark Theme
+- Professional Dark Theme UI
 - Responsive Layout
 
 ---
 
-# 📷 Dashboard Screenshots
+## 📷 Dashboard Snapshots
 
-_Add screenshots here_
+### Monthly View
 
-```
-![Dashboard Overview](screenshots/dashboard_overview.png)
-![Category Analysis](screenshots/category_analysis.png)
-![Seller Revenue](screenshots/seller_revenue.png)
-```
+<p align="center">
+  <img src="snapshots/ecommerce_analytics_monthly.png" width="900"/>
+</p>
 
----
+### Daily View
 
-# 🛠 Tech Stack
-
-- Python
-- Pandas
-- Plotly
-- Streamlit
-- FastAPI
-- MySQL
-- Google BigQuery
-- SQLAlchemy
-- Faker
+<p align="center">
+  <img src="snapshots/ecommerce_analytics_daily.png" width="900"/>
+</p>
 
 ---
 
-# ⚙️ How to Run
+## 🛠 Technology Stack
 
-## 1️⃣ Install Dependencies
+- Python  
+- Pandas  
+- SQL  
+- MySQL  
+- Google BigQuery  
+- FastAPI  
+- Streamlit  
+- Plotly  
+- SQLAlchemy  
+- Faker  
+
+---
+
+## ⚙️ How to Run the Project
+
+### 1️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 2️⃣ Start FastAPI
+### 2️⃣ Start FastAPI
 
 ```bash
 uvicorn main:app --reload
 ```
 
-## 3️⃣ Run Streamlit
+### 3️⃣ Run Streamlit Dashboard
 
 ```bash
 streamlit run dashboard/app.py
@@ -222,47 +227,33 @@ streamlit run dashboard/app.py
 
 ---
 
-# 🌍 Real-World Applications
+## 🌍 Real-World Applications
 
-Used in:
+This architecture is commonly used in:
 
-- E-Commerce Platforms
-- Retail Analytics
-- Banking Systems
-- Clickstream Analytics
-- SaaS Analytics
-
-Companies using similar systems:
-
-Amazon • Flipkart • Netflix • Walmart • Shopify
+- E-Commerce Analytics  
+- Retail Data Platforms  
+- Clickstream Analytics  
+- SaaS Business Intelligence Systems  
+- Cloud-Based Data Warehousing  
 
 ---
 
-# 🚀 Deployment Options
+## 🎓 Resume Description
 
-- Render
-- Railway
-- Google Cloud Run
-- AWS EC2
-- Streamlit Cloud
+Built a production-style event-driven e-commerce data platform integrating MySQL, BigQuery, FastAPI, and Streamlit. Implemented ETL processing, star schema modeling, analytical views, REST APIs, and an interactive BI dashboard to simulate enterprise-level cloud analytics architecture.
 
 ---
 
-# 🎓 Resume Description
+## 📌 Project Status
 
-Built a production-style event-driven e-commerce data pipeline using MySQL, BigQuery, FastAPI, and Streamlit. Implemented ETL processing, star schema modeling, cloud warehousing, REST APIs, and an interactive BI dashboard to simulate enterprise-grade analytics architecture.
-
----
-
-# 📌 Project Status
-
-✅ Completed  
-✅ Cloud Integrated  
-✅ Event-Driven Architecture  
-✅ Full Analytics Stack Implemented  
+✔ Completed  
+✔ Cloud Integrated  
+✔ Event-Driven Architecture  
+✔ End-to-End Data Pipeline Implemented  
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-Developed as part of a Data Engineering & Business Intelligence Portfolio Project.
+Developed as a Data Engineering & Business Intelligence portfolio project.
