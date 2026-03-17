@@ -9,8 +9,8 @@ from sqlalchemy.exc import SQLAlchemyError
 
 connection_url = URL.create(
     "mysql+pymysql",
-    username="root",
-    password="Nikhil@#.587",
+    username="your username",
+    password="your password",
     host="localhost",
     database="ecommerce_data"
 )
