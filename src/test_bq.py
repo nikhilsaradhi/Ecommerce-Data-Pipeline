@@ -3,7 +3,7 @@ import os
 
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\Users\\kandu\\Desktop\\ecommerce-event-pipeline\\config\\ecommerce-data-pipeline-488018-74b96fd452be.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "path of json key "
 
 
 
