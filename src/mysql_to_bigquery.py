@@ -9,8 +9,8 @@ from sqlalchemy import create_engine
 
 mysql_url = URL.create(
     drivername="mysql+pymysql",
-    username="root",
-    password="Nikhil@#.587",  
+    username="your username",
+    password="your password",  
     host="localhost",
     database="ecommerce_data"
 )
